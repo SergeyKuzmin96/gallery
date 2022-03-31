@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once '../models/Profile.php';
+require_once '../models/Gallery.php';
 
-$profile = Profile::instance();
-$profile->deleteImage($_GET['name']);
+$gallery = new Gallery();
+$gallery->deleteImage($_GET['name']);
 Header('Location: ../views/profileView.php');
 

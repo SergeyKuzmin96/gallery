@@ -16,7 +16,7 @@ if ($_SESSION['user']) {
     <meta name="keywords" content="Badge Signup Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Custom Theme files -->
-    <link href="../assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../public/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!-- //Custom Theme files -->
     <!-- web font -->
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
@@ -28,9 +28,9 @@ if ($_SESSION['user']) {
     <h1>Sign in Form</h1>
     <div class="agilesign-form">
         <div class="agileits-top">
-            <form action="../controllers/signinController.php" method="post">
+            <form autocomplete="off" action="../controllers/signinController.php" method="post">
                 <div class="styled-input w3ls-text">
-                    <input type="text" name="login" required=""/>
+                    <input  type="text" name="login" required=""/>
                     <label>Login</label>
                     <span></span>
                 </div>

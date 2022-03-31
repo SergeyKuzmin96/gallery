@@ -1,4 +1,5 @@
 <?php
+require_once '../app/DB.php';
 
 class User
 {
@@ -7,10 +8,12 @@ class User
     private $email;
     private $password;
 
-    public $connect;
+    private $connect;
 
     public function __construct()
     {
+//        $db = new DB;
+//        $this->connect = $db->getConnection();
         $this->connect = DB::instance()->getConnection();
 
     }

@@ -1,14 +1,12 @@
 <?php
 session_start();
 
-require_once '../Validator.php';
+require_once '../app/validation/signupValidate.php';
 require_once '../models/User.php';
-if (!empty($_POST)) {
+
 
     $data = $_POST;
-
-    $validator = new Validator();
-    $data = $validator->signupValidate($data);
+    $data = signupValidate($data);
     if ($data['flag'] == 1) {
 
         $_SESSION['login'] = $data['login'];
@@ -26,8 +24,5 @@ if (!empty($_POST)) {
         $user->saveUser();
         $_SESSION['message'] = 'Registration was successful!';
         Header('Location: ../views/signinView.php');
-
-    }
-
 
 }

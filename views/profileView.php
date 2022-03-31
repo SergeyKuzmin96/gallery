@@ -1,19 +1,12 @@
 <?php
-
-$dir_original = "../src/uploads/original/";
-$dir_mini = "../src/uploads/mini/";
-
-require_once '../models/Profile.php';
+require_once '../controllers/getGalleryController.php';
 session_start();
 
 if (!$_SESSION['user']) {
     header('Location: /');
 }
-
-$user_id = $_SESSION['user']['id'];
-
-$profile = Profile::instance();
-$arr_img = $profile->getImagesByUserId();
+$dir_original = "../public/uploads/original/";
+$dir_mini = "../public/uploads/mini/";
 
 ?>
 
@@ -39,7 +32,7 @@ $arr_img = $profile->getImagesByUserId();
 <div class="container">
 
     <div class="row">
-        <?php foreach ($arr_img as $image): ?>
+        <?php foreach ($_SESSION['gallery'] as $image): ?>
             <div class="col-md-3 col-sm-4 col-xs-6 thumb">
                 <a data-fancybox="gallery" class="fancyimage"  rel="group" href="<?=$dir_original . $image ?>">
                     <img class="img-responsive" src="<?= $dir_mini . $image?>"  alt=""/>

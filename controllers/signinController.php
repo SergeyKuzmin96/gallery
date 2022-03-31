@@ -1,14 +1,12 @@
 <?php
 require_once '../models/User.php';
-require_once '../Validator.php';
+require_once '../app/validation/signinValidate.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
 
     $data = $_POST;
 
-    $validator = new Validator();
-
-    $data = $validator->signinValidate($data);
+    $data = signinValidate($data);
 
     if ($data['flag'] != 1) {
         unset($_SESSION['message']);
@@ -24,5 +22,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     }
     Header('Location: ../views/signinView.php');
-}
+
 

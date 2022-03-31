@@ -1,4 +1,17 @@
-RewriteEngine On
-RewriteCond {REQUSET_FILENAME} -f
-RewriteCond {REQUSET_FILENAME} -d
-RewriteRule ^index.php [QSA,L]
+#AddDefaultCharset utf-8
+#RewriteEngine On
+#RewriteRule (.*) public/ [QSA,L]
+#RewriteEngine On
+#RewriteCond {REQUSET_FILENAME} -f
+#RewriteCond {REQUSET_FILENAME} -d
+#RewriteRule ^public/index.php [QSA,L]
+##
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php
+DirectoryIndex /public/index.php
+
+order deny,allow
+deny from all
+allow from 127.0.0.0/12

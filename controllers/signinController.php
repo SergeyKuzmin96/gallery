@@ -2,25 +2,23 @@
 require_once '../models/User.php';
 require_once '../app/validation/signinValidate.php';
 
+$data = $_POST;
 
+$data = signinValidate($data);
 
-    $data = $_POST;
+if ($data['flag'] != 1) {
+    unset($_SESSION['message']);
 
-    $data = signinValidate($data);
+    $user = new User();
+    if ($user->getUserByLogAndPas($data['login'], $data['password'])) {
 
-    if ($data['flag'] != 1) {
-        unset($_SESSION['message']);
+        Header('Location: ../views/profileView.php');
 
-        $user = new User();
-        if ($user->getUserByLogAndPas($data['login'], $data['password'])) {
-
-            Header('Location: ../views/profileView.php');
-
-        } else {
-            $_SESSION['message'] = 'Не удаётся войти.Пожалуйста, проверьте правильность написания логина и пароля. ';
-        }
-
+    } else {
+        $_SESSION['message'] = 'Не удаётся войти.Пожалуйста, проверьте правильность написания логина и пароля. ';
     }
-    Header('Location: ../views/signinView.php');
+
+}
+Header('Location: ../views/signinView.php');
 
 

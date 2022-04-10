@@ -10,10 +10,8 @@ class Gallery
 
     public function __construct()
     {
-//        $db = new DB;
-//        $this->connect = $db->getConnection();
-        $this->connect = DB::instance()->getConnection();
-
+        $db = new DB;
+        $this->connect = $db->getConnection();
         $this->user_id = $_SESSION['user']['id'];
 
     }

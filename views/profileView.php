@@ -34,12 +34,12 @@ $dir_mini = "../public/uploads/mini/";
     <div class="row">
         <?php foreach ($_SESSION['gallery'] as $image): ?>
             <div class="col-md-3 col-sm-4 col-xs-6 thumb">
-                <a data-fancybox="gallery" class="fancyimage"  rel="group" href="<?=$dir_original . $image ?>">
-                    <img class="img-responsive" src="<?= $dir_mini . $image?>"  alt=""/>
+                <a data-fancybox="gallery" class="fancyimage" rel="group" href="<?= $dir_original . $image ?>">
+                    <img class="img-responsive" src="<?= $dir_mini . $image ?>" alt=""/>
                 </a>
                 <form action="../controllers/deleteController.php" method="get">
-                    <input type="hidden" name="name" value="<?=$image?>" />
-                    <input type="submit" value="Удалить" />
+                    <input type="hidden" name="name" value="<?= $image ?>"/>
+                    <input type="submit" value="Удалить"/>
                 </form>
             </div>
 
@@ -49,8 +49,8 @@ $dir_mini = "../public/uploads/mini/";
 </div>
 
 <form action="../controllers/uploadController.php" enctype="multipart/form-data" method="post">
-    <input name="picture" type="file" />
-    <input type="submit" value="Загрузить" />
+    <input name="picture" type="file"/>
+    <input type="submit" value="Загрузить"/>
     <?php
     if ($_SESSION['upload_msg']) {
         echo '<p class="msg"> ' . $_SESSION['upload_msg'] . ' </p>';
@@ -63,7 +63,7 @@ $dir_mini = "../public/uploads/mini/";
 <script src="../assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../assets/js/jquery.fancybox.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("a.fancyimage").fancybox();
     });
 </script>

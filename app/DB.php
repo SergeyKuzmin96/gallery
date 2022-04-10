@@ -1,17 +1,19 @@
 <?php
-require_once 'TSingletone.php';
-class DB
+require_once '../config/config_db.php';class DB
 {
-    use TSingletone;
     private $connection;
 
+    /**
+     * @throws Exception
+     */
     public function __construct()
     {
-        $db = require_once '../config/config_db.php';
-        $this->connection = mysqli_connect($db['host'], $db['username'], $db['password'], $db['database']);
+
+        $this->connection = mysqli_connect(DB_SERVER,DB_USER,DB_PASSWORD,DB_DATABASE);
+
 
         if (!$this->connection) {
-            throw new \Exception("Нет соединения с БД", 500);
+            throw new Exception("Нет соединения с БД", 500);
         }
     }
 

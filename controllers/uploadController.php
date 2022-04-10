@@ -13,8 +13,7 @@ $user_login = $_SESSION['user']['login'];
 $type = $_FILES['picture']['type'];
 
 if (imageTypeValidate($type)) {
-
-    $unique_name =  $user_login . $_FILES['picture']['name'];
+    $unique_name = $user_login . $_FILES['picture']['name'];
     $tmp_name = $_FILES['picture']['tmp_name'];
 
     $gallery = new Gallery();
@@ -23,9 +22,7 @@ if (imageTypeValidate($type)) {
     $_SESSION['upload_msg'] = 'Файл загружен';
 
 } else {
-
     $_SESSION['upload_msg'] = 'Неверный тип фала';
-
 }
 
 Header('Location: ../views/profileView.php');

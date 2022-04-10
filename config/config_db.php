@@ -1,9 +1,6 @@
 <?php
 
-return [
-    'host' => '127.0.0.1',
-    'username' => 'root',
-    'password' => 'qwerty',
-    'database' => 'auth',
-
-];
+const DB_SERVER = "localhost";
+const DB_USER = "root";
+const DB_PASSWORD = "";
+const DB_DATABASE = "auth";

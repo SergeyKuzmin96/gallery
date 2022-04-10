@@ -4,10 +4,9 @@ require_once 'functions.php';
 
 function signupValidate($data): array
 {
-//    $db = new DB();
-//
-//    $connect = $db->getConnection();
-    $connect = DB::instance()->getConnection();
+    $db = new DB();
+
+    $connect = $db->getConnection();
 
     $data = clearData($data);
     $login = $data['login'];

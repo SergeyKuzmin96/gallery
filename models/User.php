@@ -8,15 +8,15 @@ class User
     private $email;
     private $password;
 
-    private $connect;
+    public $connect;
 
     public function __construct()
     {
-//        $db = new DB;
-//        $this->connect = $db->getConnection();
-        $this->connect = DB::instance()->getConnection();
+        $db = new DB;
+        $this->connect = $db->getConnection();
 
     }
+
     //Метод сохранения пользователя в БД
     public function saveUser()
     {
@@ -24,7 +24,7 @@ class User
     }
 
     //Метод получения пользователя из БД
-    public  function getUserByLogAndPas($login, $password): bool
+    public function getUserByLogAndPas($login, $password): bool
     {
         $password = md5($password);
         $check_user = mysqli_query($this->connect, "SELECT * FROM `users` WHERE `login` = '$login' AND `password` = '$password'");
@@ -47,7 +47,8 @@ class User
     }
 
 
-    public function setId($id){
+    public function setId($id)
+    {
         $this->id = $id;
 
     }

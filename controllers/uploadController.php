@@ -12,18 +12,22 @@ $user_id = $_SESSION['user']['id'];
 $user_login = $_SESSION['user']['login'];
 $type = $_FILES['picture']['type'];
 
-if (imageTypeValidate($type)) {
-    $unique_name = $user_login . $_FILES['picture']['name'];
-    $tmp_name = $_FILES['picture']['tmp_name'];
+$picture = $_FILES;
 
-    $gallery = new Gallery();
-    $gallery->newImageById($user_id, $unique_name, $tmp_name, $type);
 
-    $_SESSION['upload_msg'] = 'Файл загружен';
+    if (imageTypeValidate($type)) {
+        $unique_name = $user_login . $_FILES['picture']['name'];
+        $tmp_name = $_FILES['picture']['tmp_name'];
 
-} else {
-    $_SESSION['upload_msg'] = 'Неверный тип фала';
-}
+        $gallery = new Gallery();
+        $gallery->newImageById($user_id, $unique_name, $tmp_name, $type);
+
+        $_SESSION['upload_msg'] = 'Файл загружен';
+    } else {
+        if($_FILES['picture']['error'] !== 4){
+            $_SESSION['upload_msg'] = 'Неверный тип файла';
+        }
+    }
 
 Header('Location: ../views/profileView.php');
 

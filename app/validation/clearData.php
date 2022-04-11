@@ -9,6 +9,6 @@ function clearData($data): array
         $value = strip_tags($value);
         $attributes["$key"] = htmlspecialchars($value);
     }
-    return $attributes;
 
+    return $attributes;
 }

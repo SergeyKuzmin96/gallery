@@ -3,17 +3,14 @@ session_start();
 require_once '../app/validation/imageTypeValidate.php';
 require_once '../models/Gallery.php';
 
-
 $dir_original = "..public/uploads/original/";
 $dir_mini = "..public/uploads/mini/";
-
 
 $user_id = $_SESSION['user']['id'];
 $user_login = $_SESSION['user']['login'];
 $type = $_FILES['picture']['type'];
 
 $picture = $_FILES;
-
 
     if (imageTypeValidate($type)) {
         $unique_name = uniqid().$user_login . $_FILES['picture']['name'];

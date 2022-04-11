@@ -13,7 +13,6 @@ class Gallery
         $db = new DB;
         $this->connect = $db->getConnection();
         $this->user_id = $_SESSION['user']['id'];
-
     }
 
     //Метод получения изображений для галереи

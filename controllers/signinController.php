@@ -13,11 +13,9 @@ if ($data['flag'] != 1) {
     if ($user->getUserByLogAndPas($data['login'], $data['password'])) {
 
         Header('Location: ../views/profileView.php');
-
     } else {
         $_SESSION['message'] = 'Не удаётся войти.Пожалуйста, проверьте правильность написания логина и пароля. ';
     }
-
 }
 Header('Location: ../views/signinView.php');
 

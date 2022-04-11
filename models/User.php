@@ -14,7 +14,6 @@ class User
     {
         $db = new DB;
         $this->connect = $db->getConnection();
-
     }
 
     //Метод сохранения пользователя в БД
@@ -39,7 +38,6 @@ class User
                 "id" => $user['id'],
                 "login" => $user['login'],
                 "email" => $user['email'],
-
             ];
             return true;
         }
@@ -50,25 +48,21 @@ class User
     public function setId($id)
     {
         $this->id = $id;
-
     }
 
     public function setLogin($login)
     {
         $this->login = $login;
-
     }
 
     public function setEmail($email)
     {
         $this->email = $email;
-
     }
 
     public function setPassword($password)
     {
         $this->password = md5($password);
-
     }
 
 

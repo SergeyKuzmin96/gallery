@@ -62,5 +62,4 @@ function signupValidate($data): array
 
     $data['flag'] = $flag;
     return $data;
-
 }

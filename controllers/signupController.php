@@ -24,5 +24,4 @@ if ($data['flag'] == 1) {
     $user->saveUser();
     $_SESSION['message'] = 'Registration was successful!';
     Header('Location: ../views/signinView.php');
-
 }

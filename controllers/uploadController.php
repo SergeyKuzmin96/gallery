@@ -16,7 +16,7 @@ $picture = $_FILES;
 
 
     if (imageTypeValidate($type)) {
-        $unique_name = $user_login . $_FILES['picture']['name'];
+        $unique_name = uniqid().$user_login . $_FILES['picture']['name'];
         $tmp_name = $_FILES['picture']['tmp_name'];
 
         $gallery = new Gallery();
